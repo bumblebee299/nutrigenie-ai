@@ -1,36 +1,46 @@
-# NutriGenie AI
+# 🥗 NutriGenie AI
 
-> Intelligent AI-powered Nutrition Assistant built with **Next.js**, **FastAPI**, **IBM watsonx.ai**, **IBM Cloudant**, and **IBM Cloud Object Storage**.
+> **An AI-powered Nutrition Assistant built with IBM watsonx.ai, FastAPI, Next.js, IBM Cloudant, and IBM Cloud Object Storage.**
 
----
-
-# Overview
-
-NutriGenie AI is a full-stack AI nutrition assistant that helps users make healthier food choices through conversational AI, personalized meal planning, food image analysis, nutrition label interpretation, healthy food swaps, and progress tracking.
-
-The application is powered by **IBM watsonx.ai** using **Meta Llama 3.3 70B Instruct**, while leveraging IBM Cloud services for secure storage and scalable deployment.
+NutriGenie AI helps users make healthier dietary decisions through conversational AI, personalized meal planning, food image analysis, nutrition label interpretation, healthy food recommendations, and weekly nutrition tracking.
 
 ---
 
-# Features
+## 🚀 Live Demo
 
-## AI Nutrition Chat
+**Frontend:**  
+https://nutrigenie-ai.vercel.app
+
+**Backend API:**  
+https://nutrigenie-ai.onrender.com
+
+**Swagger Documentation:**  
+https://nutrigenie-ai.onrender.com/docs
+
+---
+
+# ✨ Features
+
+## 🤖 AI Nutrition Chat
+
 - Ask nutrition and health-related questions.
-- Personalized responses based on user profile.
+- Personalized responses.
 - Context-aware conversations.
+- Powered by IBM watsonx.ai.
 
 ---
 
-## Personalized Meal Planner
-Generate meal plans based on:
+## 🍽 Personalized Meal Planner
+
+Generate AI-powered meal plans using:
 
 - Age
 - Height
 - Weight
-- Fitness goal
-- Dietary preference
+- Fitness Goal
+- Dietary Preference
 - Allergies
-- Cuisine preference
+- Cuisine Preference
 - Budget
 
 Includes:
@@ -39,11 +49,11 @@ Includes:
 - Lunch
 - Dinner
 - Snacks
-- Daily nutrition summary
+- Daily Nutrition Summary
 
 ---
 
-## Food Image Analysis
+## 📸 Food Image Analysis
 
 Upload a food image to receive:
 
@@ -54,60 +64,60 @@ Upload a food image to receive:
 - Healthier alternatives
 - AI explanation
 
-Images are securely stored in **IBM Cloud Object Storage**.
+Images are securely stored in **IBM Cloud Object Storage** before analysis.
 
 ---
 
-## Nutrition Label Reader
+## 🏷 Nutrition Label Reader
 
 Upload a nutrition facts label and receive:
 
 - Calories
 - Protein
-- Fat
 - Sugar
+- Fat
 - Sodium
 - Health warnings
 - Easy-to-understand explanation
 
 ---
 
-## Healthy Food Swap
+## 🥗 Healthy Food Swap
 
-Replace unhealthy foods with healthier alternatives.
+Get healthier alternatives for unhealthy foods.
 
-Example:
+Examples:
 
 - French Fries → Baked Sweet Potato
 - Cola → Lemon Water
 - Ice Cream → Greek Yogurt
 
-Includes explanation for every recommendation.
+Each recommendation includes an explanation.
 
 ---
 
-## Weekly Dashboard
+## 📊 Weekly Dashboard
 
-Track:
+Track your nutrition progress through:
 
 - Calories
 - Protein
 - Water Intake
 - Weight
-- Weekly progress
+- Weekly Progress
 
 ---
 
-## User Authentication
+## 🔐 Secure Authentication
 
-- Register
+- User Registration
 - Login
 - JWT Authentication
 - Protected Routes
 
 ---
 
-# Project Architecture
+# 🏗 Project Architecture
 
 ```
 NutriGenie AI
@@ -138,7 +148,25 @@ NutriGenie AI
 
 ---
 
-# Technology Stack
+# 🏛 System Architecture
+
+```
+                    User
+                      │
+                      ▼
+              Next.js Frontend
+                      │
+                      ▼
+              FastAPI Backend
+         ┌──────────┼──────────┐
+         ▼          ▼          ▼
+ IBM watsonx.ai   Cloudant    IBM COS
+      AI         Database     Image Storage
+```
+
+---
+
+# 🛠 Technology Stack
 
 ## Frontend
 
@@ -176,31 +204,41 @@ NutriGenie AI
 
 ---
 
-# API Endpoints
+# 📡 API Endpoints
 
 | Method | Endpoint | Description |
-|----------|------------------------|----------------|
-| POST | /auth/register | Register user |
-| POST | /auth/login | Login |
-| GET | /auth/me | Current user |
-| POST | /chat | AI Chat |
-| POST | /meal-plan | Generate meal plan |
-| POST | /image-analysis | Analyze food image |
-| POST | /label-analysis | Analyze nutrition label |
-| POST | /food-swap | Healthy food alternatives |
-| GET | /dashboard/{user_id} | Weekly dashboard |
-| GET | /profile/{user_id} | User profile |
-| PATCH | /profile/{user_id} | Update profile |
+|---------|----------|-------------|
+| POST | `/auth/register` | Register User |
+| POST | `/auth/login` | Login |
+| GET | `/auth/me` | Current User |
+| POST | `/chat` | AI Nutrition Chat |
+| POST | `/meal-plan` | Generate Meal Plan |
+| POST | `/image-analysis` | Food Image Analysis |
+| POST | `/label-analysis` | Nutrition Label Analysis |
+| POST | `/food-swap` | Healthy Food Alternatives |
+| GET | `/dashboard/{user_id}` | Weekly Dashboard |
+| GET | `/profile/{user_id}` | User Profile |
+| PATCH | `/profile/{user_id}` | Update Profile |
 
 Swagger:
 
 ```
-http://localhost:8000/docs
+https://nutrigenie-ai.onrender.com/docs
 ```
 
 ---
 
-# Local Development
+# ⚙ Local Development
+
+## Clone Repository
+
+```bash
+git clone https://github.com/bumblebee299/nutrigenie-ai.git
+
+cd nutrigenie-ai
+```
+
+---
 
 ## Backend
 
@@ -241,11 +279,11 @@ http://localhost:3000
 
 ---
 
-# Environment Variables
+# 🔑 Environment Variables
 
-Create a `.env` file and configure:
+Create a `.env` file:
 
-```
+```env
 SECRET_KEY=
 
 WATSONX_API_KEY=
@@ -273,15 +311,15 @@ NEXT_PUBLIC_API_BASE_URL=http://localhost:8000
 
 ---
 
-# Docker
+# 🐳 Docker
 
-Build:
+Build and Run
 
 ```bash
 docker-compose up --build
 ```
 
-Stop:
+Stop
 
 ```bash
 docker-compose down
@@ -289,9 +327,21 @@ docker-compose down
 
 ---
 
-# Code Quality
+# ☁ Deployment
 
-Backend
+| Component | Platform |
+|------------|----------|
+| Frontend | Vercel |
+| Backend | Render |
+| AI | IBM watsonx.ai |
+| Database | IBM Cloudant |
+| Storage | IBM Cloud Object Storage |
+
+---
+
+# ✅ Code Quality
+
+## Backend
 
 ```bash
 ruff check backend
@@ -301,7 +351,7 @@ black backend
 mypy backend
 ```
 
-Frontend
+## Frontend
 
 ```bash
 cd frontend
@@ -315,7 +365,7 @@ npm run build
 
 ---
 
-# Testing
+# 🧪 Testing
 
 Backend
 
@@ -331,65 +381,88 @@ npm test
 
 ---
 
-# IBM Cloud Services Used
+# 📂 IBM Cloud Services Used
 
 - IBM watsonx.ai
 - IBM Cloudant
 - IBM Cloud Object Storage
 - IBM IAM
-- IBM Cloud Code Engine (deployment ready)
 
 ---
 
-# AI Model
+# 🧠 AI Model
 
-Current model:
+Current Model
 
 ```
 meta-llama/llama-3-3-70b-instruct
 ```
 
-The application uses IBM watsonx.ai for all AI-powered features including:
+Used for:
 
-- AI Chat
-- Meal Planning
+- AI Nutrition Chat
+- Meal Planner
 - Food Image Analysis
 - Nutrition Label Reader
 - Healthy Food Swap
 
 ---
 
-# Project Status
+# 📈 Project Status
 
 | Module | Status |
-|----------|---------|
-| Project Setup | ✅ Complete |
-| Authentication | ✅ Complete |
-| User Profile | ✅ Complete |
-| AI Chat | ✅ Complete |
-| Meal Planner | ✅ Complete |
-| Food Image Analysis | ✅ Complete |
-| Nutrition Label Reader | ✅ Complete |
-| Healthy Food Swap | ✅ Complete |
-| Weekly Dashboard | ✅ Complete |
-| IBM Cloud Integration | ✅ Complete |
+|----------|--------|
+| Project Setup | ✅ |
+| Authentication | ✅ |
+| User Profile | ✅ |
+| AI Chat | ✅ |
+| Meal Planner | ✅ |
+| Food Image Analysis | ✅ |
+| Nutrition Label Reader | ✅ |
+| Healthy Food Swap | ✅ |
+| Weekly Dashboard | ✅ |
+| IBM Cloud Integration | ✅ |
+| Deployment | ✅ |
 
 ---
 
-# Future Improvements
+# 🛣 Roadmap
 
-- Multimodal IBM Granite Vision model support (when available)
-- Meal history tracking
-- Feedback learning
-- Push notifications
+- Responsive mobile dashboard improvements
+- Barcode scanning support
+- Meal history analytics
+- Multi-language support
 - Mobile application
 
 ---
 
-# License
+# 🤝 Acknowledgements
 
-MIT License
+This project was built using:
+
+- IBM watsonx.ai
+- IBM Cloudant
+- IBM Cloud Object Storage
+- FastAPI
+- Next.js
+- React
+- Tailwind CSS
+- TypeScript
 
 ---
 
-Built with ❤️ using IBM watsonx.ai and IBM Cloud.
+# 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+**Shrvan Kumat**
+
+GitHub: https://github.com/bumblebee299
+
+---
+
+⭐ If you found this project useful, consider giving it a star!
