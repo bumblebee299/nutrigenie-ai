@@ -48,7 +48,7 @@ export function ChatInput({ onSend, isLoading, placeholder = "Ask a nutrition qu
     <div className="border-t border-gray-800 bg-gray-950 px-4 py-3 space-y-2">
       {/* Suggestion pills — shown only when chat is empty */}
       {!isLoading && (
-        <div className="flex flex-wrap gap-2">
+        <div className="flex overflow-x-auto gap-2 pb-1 -mx-4 px-4 sm:mx-0 sm:px-0 flex-nowrap sm:flex-wrap [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {SUGGESTION_PILLS.map((pill) => (
             <button
               key={pill}
@@ -56,7 +56,7 @@ export function ChatInput({ onSend, isLoading, placeholder = "Ask a nutrition qu
                 setText(pill);
                 textareaRef.current?.focus();
               }}
-              className="text-xs px-3 py-1 rounded-full bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-gray-200 border border-gray-700 transition-colors"
+              className="text-xs px-3 py-1 rounded-full bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-gray-200 border border-gray-700 transition-colors whitespace-nowrap"
             >
               {pill}
             </button>

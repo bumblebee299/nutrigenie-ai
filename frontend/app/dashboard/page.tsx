@@ -236,7 +236,7 @@ function DashboardContent() {
           {/* Main Dashboard Panel */}
           <div className="lg:col-span-2 space-y-8">
             {/* 7-day Averages Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <StatCard label="Avg Calories" value={dashboard.summary.avg_calories.toFixed(0)} unit="kcal" color="text-yellow-400" icon={TrendingUp} />
               <StatCard label="Avg Protein" value={dashboard.summary.avg_protein_g.toFixed(1)} unit="g" color="text-blue-400" icon={PlusCircle} />
               <StatCard label="Avg Water" value={(dashboard.summary.avg_water_ml / 1000).toFixed(1)} unit="L" color="text-cyan-400" icon={Droplet} />
@@ -252,7 +252,7 @@ function DashboardContent() {
             {/* Weekly Progress Tracker (Pill Selector for Dates) */}
             <div className="card bg-gray-900/40 backdrop-blur-md space-y-4">
               <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Select Day to Log & View</h3>
-              <div className="grid grid-cols-7 gap-2">
+              <div className="grid grid-cols-7 gap-1 sm:gap-2">
                 {dashboard.daily_entries.map((entry) => {
                   const entryDate = parseISO(entry.date);
                   const isSelected = isSameDay(entryDate, selectedDate);
@@ -262,16 +262,16 @@ function DashboardContent() {
                       key={entry.date}
                       onClick={() => setSelectedDate(entryDate)}
                       className={clsx(
-                        "flex flex-col items-center py-2.5 rounded-xl border transition-all duration-300 hover:scale-[1.03]",
+                        "flex flex-col items-center py-2 sm:py-2.5 rounded-lg sm:rounded-xl border transition-all duration-300 hover:scale-[1.03]",
                         isSelected
                           ? "bg-brand-600/20 border-brand-500 text-brand-400 shadow-lg shadow-brand-900/10"
                           : "bg-gray-800/40 border-gray-800 hover:border-gray-700 text-gray-400",
                         isToday && !isSelected && "border-emerald-500/30 text-emerald-400"
                       )}
                     >
-                      <span className="text-[10px] uppercase font-bold tracking-wider">{format(entryDate, "EEE")}</span>
-                      <span className="text-lg font-extrabold mt-1">{format(entryDate, "d")}</span>
-                      <div className="w-1.5 h-1.5 rounded-full mt-2 bg-yellow-400/80" style={{ opacity: entry.calories_consumed > 0 ? 1 : 0 }} />
+                      <span className="text-[8px] sm:text-[10px] uppercase font-bold tracking-wider">{format(entryDate, "EEE")}</span>
+                      <span className="text-sm sm:text-lg font-extrabold mt-0.5 sm:mt-1">{format(entryDate, "d")}</span>
+                      <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full mt-1.5 sm:mt-2 bg-yellow-400/80" style={{ opacity: entry.calories_consumed > 0 ? 1 : 0 }} />
                     </button>
                   );
                 })}

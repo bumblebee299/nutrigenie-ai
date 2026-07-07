@@ -128,7 +128,7 @@ export function MealPlanForm({ userId, onSubmit, isLoading }: MealPlanFormProps)
       </div>
 
       {/* Biometrics */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div>
           <label htmlFor="age" className="label">Age</label>
           <input id="age" type="number" className="input-field" placeholder="28" {...register("age")} />
